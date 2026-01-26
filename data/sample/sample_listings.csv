@@ -1,0 +1,51 @@
+city,postcode,living_space,rooms,rent,description,year_built,floor,rent_per_sqm,scam_label,city_tier
+Nuremberg,90419,84.4,3.3,814.0,Close to university and city center.,1996,3,9.64,0,3
+Frankfurt,60318,39.9,1.4,857.0,Well-maintained building with elevator.,1904,0,21.47,0,1
+Düsseldorf,40215,101.3,3.8,1987.0,Gemütliche 2-Zimmer Wohnung mit Einbauküche.,1902,0,19.61,0,2
+Leipzig,04177,144.3,5.3,531.0,"Ich bin im Ausland, bitte Miete vorab überweisen für Schlüsselübergabe.",1969,8,3.68,1,3
+Essen,45127,103.8,3.5,829.0,Moderne Wohnung mit Fußbodenheizung.,1917,4,7.99,0,4
+Duisburg,47059,50.0,1.8,132.0,Too good to be true? It's real! Just send deposit first.,1944,7,2.64,1,4
+Nuremberg,90429,134.4,4.5,1510.0,Schöne helle Wohnung im Altbau mit Balkon. Ruhige Lage.,1959,0,11.24,0,3
+Stuttgart,70188,60.5,2.3,1441.0,Sonnige Südausrichtung mit großer Terrasse.,2019,4,23.82,0,1
+Dresden,01099,108.7,3.3,1412.0,Moderne Wohnung mit Fußbodenheizung.,1923,8,12.99,0,3
+Hamburg,20095,98.6,3.6,1831.0,Green surroundings with garden access.,1994,3,18.57,0,2
+Dortmund,44137,71.6,2.5,462.0,Altbauwohnung mit hohen Decken und Parkettboden.,1927,0,6.45,0,4
+Frankfurt,60316,33.0,1.0,582.0,Close to university and city center.,1926,5,17.64,0,1
+Duisburg,47058,56.7,2.4,420.0,Green surroundings with garden access.,1972,2,7.41,0,4
+Cologne,50672,95.5,2.9,1353.0,Moderne Wohnung mit Fußbodenheizung.,1978,3,14.17,0,2
+Essen,45134,98.6,3.8,830.0,Newly built apartment with underground parking.,2014,3,8.42,0,4
+Stuttgart,70180,112.7,4.2,1706.0,Sonnige Südausrichtung mit großer Terrasse.,1997,3,15.14,0,1
+Essen,45127,124.0,4.2,306.0,"Cannot meet in person, will send keys by mail after payment.",1984,0,2.47,1,4
+Cologne,50676,85.4,2.6,502.0,Sehr günstig wegen Umzug ins Ausland. Kaution vorab überweisen.,2021,0,5.88,1,2
+Berlin,10117,110.3,3.3,820.0,"Cannot meet in person, will send keys by mail after payment.",1986,3,7.43,1,2
+Dresden,01069,64.7,2.1,711.0,Bright apartment with great views of the city.,2006,3,10.99,0,3
+Düsseldorf,40217,110.9,3.9,1369.0,Newly built apartment with underground parking.,2000,3,12.34,0,2
+Essen,45131,134.3,4.2,954.0,Newly built apartment with underground parking.,1971,2,7.1,0,4
+Cologne,50676,101.7,2.9,1343.0,Altbauwohnung mit hohen Decken und Parkettboden.,1992,0,13.21,0,2
+Berlin,10243,74.6,2.4,1003.0,Gepflegtes Mehrfamilienhaus in guter Lage.,1905,3,13.44,0,2
+Dortmund,44135,139.6,5.1,1326.0,Moderne Wohnung mit Fußbodenheizung.,1930,3,9.5,0,4
+Leipzig,04103,110.8,3.9,697.0,Newly built apartment with underground parking.,1944,6,6.29,0,3
+Dortmund,44143,121.3,3.9,287.0,URGENT: Must rent immediately. Wire transfer required before keys.,2008,3,2.37,1,4
+Berlin,10117,126.1,4.1,1458.0,Frisch saniert mit neuer Küche und Bad.,1947,7,11.56,0,2
+Stuttgart,70180,133.7,4.1,2873.0,Gemütliche 2-Zimmer Wohnung mit Einbauküche.,1908,1,21.49,0,1
+Frankfurt,60325,123.4,3.8,2639.0,Green surroundings with garden access.,1961,4,21.39,0,1
+Berlin,10179,64.2,2.5,709.0,Modern renovated apartment near public transport.,1932,6,11.04,0,2
+Stuttgart,70180,116.2,3.7,2396.0,Green surroundings with garden access.,2016,5,20.62,0,1
+Essen,45127,32.5,1.0,563.0,Gemütliche 2-Zimmer Wohnung mit Einbauküche.,1999,4,17.34,0,4
+Cologne,50676,59.4,1.7,666.0,Modern renovated apartment near public transport.,2009,8,11.21,0,2
+Frankfurt,60311,145.7,5.1,3316.0,Close to university and city center.,1978,5,22.76,0,1
+Dortmund,44139,79.1,2.9,730.0,Modern renovated apartment near public transport.,1978,1,9.23,0,4
+Dresden,01127,111.1,3.8,332.0,URGENT: Must rent immediately. Wire transfer required before keys.,1966,6,2.99,1,3
+Hannover,30163,139.5,4.5,1919.0,Gemütliche 2-Zimmer Wohnung mit Einbauküche.,1927,5,13.75,0,3
+Duisburg,47059,147.5,4.8,834.0,Close to university and city center.,1967,3,5.65,0,4
+Munich,80333,57.4,2.3,612.0,"I am currently abroad, please send deposit via Western Union before viewing.",1966,6,10.66,1,1
+Hannover,30161,94.7,2.8,952.0,Green surroundings with garden access.,1950,0,10.05,0,3
+Essen,45133,70.3,2.1,600.0,Green surroundings with garden access.,1903,8,8.53,0,4
+Duisburg,47051,56.7,2.3,367.0,Bright apartment with great views of the city.,1947,4,6.47,0,4
+Düsseldorf,40217,46.1,1.5,306.0,My company is relocating me abroad. Send first month rent to reserve.,1908,6,6.63,1,2
+Dresden,01067,149.4,4.6,1108.0,Newly built apartment with underground parking.,1911,1,7.42,0,3
+Nuremberg,90409,68.4,2.0,775.0,Gemütliche 2-Zimmer Wohnung mit Einbauküche.,2005,2,11.33,0,3
+Cologne,50672,138.5,4.3,693.0,"Cannot meet in person, will send keys by mail after payment.",1926,6,5.0,1,2
+Duisburg,47058,101.0,3.6,461.0,Green surroundings with garden access.,1925,8,4.56,0,4
+Frankfurt,60325,92.2,2.8,1326.0,Close to university and city center.,1966,1,14.38,0,1
+Stuttgart,70188,92.3,3.2,2120.0,Green surroundings with garden access.,1915,5,22.97,0,1
