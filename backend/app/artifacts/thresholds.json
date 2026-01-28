@@ -1,0 +1,13 @@
+{
+  "thresholds": {
+    "low": 0.25,
+    "medium": 0.5,
+    "high": 0.75
+  },
+  "weights": {
+    "nlp": 0.5,
+    "anomaly": 0.3,
+    "rules": 0.2
+  },
+  "version": "1.0.0"
+}
