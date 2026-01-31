@@ -41,16 +41,42 @@ st.markdown("""
 @st.cache_resource
 def load_models():
     """Load ML models once and cache them in memory."""
+    import os
+    
+    # Debug: Show current working directory and file structure
     artifacts_path = root_path / "backend" / "app" / "artifacts"
     
-    # Initialize predictors
-    pricer = PricingPredictor(artifacts_path)
-    pricer_loaded = pricer.load_model()
+    st.sidebar.write("**Debug Info:**")
+    st.sidebar.write(f"Root path: `{root_path}`")
+    st.sidebar.write(f"Artifacts path: `{artifacts_path}`")
+    st.sidebar.write(f"Artifacts exists: {artifacts_path.exists()}")
     
-    detector = ScamDetector(artifacts_path)
-    detector_loaded = detector.load_models()
+    if artifacts_path.exists():
+        st.sidebar.write(f"Artifacts files: {list(artifacts_path.glob('*'))}")
     
-    return pricer, detector, pricer_loaded and detector_loaded
+    try:
+        # Initialize predictors
+        pricer = PricingPredictor(artifacts_path)
+        pricer_loaded = pricer.load_model()
+        
+        detector = ScamDetector(artifacts_path)
+        detector_loaded = detector.load_models()
+        
+        models_ready = pricer_loaded and detector_loaded
+        
+        if models_ready:
+            st.sidebar.success("✅ Models loaded successfully!")
+        else:
+            st.sidebar.error("⚠️ Some models failed to load")
+            st.sidebar.write(f"Pricer loaded: {pricer_loaded}")
+            st.sidebar.write(f"Detector loaded: {detector_loaded}")
+        
+        return pricer, detector, models_ready
+        
+    except Exception as e:
+        st.sidebar.error(f"❌ Error loading models: {str(e)}")
+        st.sidebar.exception(e)
+        return None, None, False
 
 pricing_model, scam_model, models_ready = load_models()
 
