@@ -6,7 +6,7 @@ requests>=2.31.0
 pandas>=2.1.0
 
 # Backend dependencies (needed for bundled_app.py)
-# Pin exact version to ensure model compatibility
-scikit-learn==1.2.2
-numpy>=1.24.0,<2.0.0
+# Use 1.5.0+ for Python 3.13 compatibility on Streamlit Cloud
+scikit-learn>=1.5.0,<1.6.0
+numpy>=1.24.0
 joblib>=1.3.0
