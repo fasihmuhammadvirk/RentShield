@@ -42,6 +42,7 @@ st.markdown("""
 def load_models():
     """Load ML models once and cache them in memory."""
     import os
+    import traceback
     
     # Debug: Show current working directory and file structure
     artifacts_path = root_path / "backend" / "app" / "artifacts"
@@ -54,29 +55,58 @@ def load_models():
     if artifacts_path.exists():
         st.sidebar.write(f"Artifacts files: {list(artifacts_path.glob('*'))}")
     
+    error_messages = []
+    
     try:
-        # Initialize predictors
+        # Initialize pricing predictor
+        st.sidebar.write("Loading pricing model...")
         pricer = PricingPredictor(artifacts_path)
         pricer_loaded = pricer.load_model()
         
+        if pricer_loaded:
+            st.sidebar.write("✅ Pricing model loaded")
+        else:
+            st.sidebar.write("❌ Pricing model failed")
+            error_messages.append("Pricing model failed to load")
+        
+    except Exception as e:
+        pricer = None
+        pricer_loaded = False
+        error_msg = f"Pricing error: {str(e)}\n{traceback.format_exc()}"
+        st.sidebar.error(error_msg)
+        error_messages.append(error_msg)
+    
+    try:
+        # Initialize scam detector
+        st.sidebar.write("Loading scam detector...")
         detector = ScamDetector(artifacts_path)
         detector_loaded = detector.load_models()
         
-        models_ready = pricer_loaded and detector_loaded
-        
-        if models_ready:
-            st.sidebar.success("✅ Models loaded successfully!")
+        if detector_loaded:
+            st.sidebar.write("✅ Scam detector loaded")
         else:
-            st.sidebar.error("⚠️ Some models failed to load")
-            st.sidebar.write(f"Pricer loaded: {pricer_loaded}")
-            st.sidebar.write(f"Detector loaded: {detector_loaded}")
-        
-        return pricer, detector, models_ready
-        
+            st.sidebar.write("❌ Scam detector failed")
+            error_messages.append("Scam detector failed to load")
+            
     except Exception as e:
-        st.sidebar.error(f"❌ Error loading models: {str(e)}")
-        st.sidebar.exception(e)
-        return None, None, False
+        detector = None
+        detector_loaded = False
+        error_msg = f"Scam detector error: {str(e)}\n{traceback.format_exc()}"
+        st.sidebar.error(error_msg)
+        error_messages.append(error_msg)
+    
+    models_ready = pricer_loaded and detector_loaded
+    
+    if models_ready:
+        st.sidebar.success("✅ All models loaded successfully!")
+    else:
+        st.sidebar.error("⚠️ Some models failed to load")
+        if error_messages:
+            st.sidebar.write("**Error Details:**")
+            for msg in error_messages:
+                st.sidebar.code(msg)
+    
+    return pricer, detector, models_ready
 
 pricing_model, scam_model, models_ready = load_models()
 
