@@ -43,6 +43,8 @@ def load_models():
     """Load ML models once and cache them in memory."""
     import os
     import traceback
+    import io
+    import sys
     
     # Debug: Show current working directory and file structure
     artifacts_path = root_path / "backend" / "app" / "artifacts"
@@ -57,38 +59,57 @@ def load_models():
     
     error_messages = []
     
+    # Capture stdout to see print statements
+    stdout_capture = io.StringIO()
+    
     try:
         # Initialize pricing predictor
         st.sidebar.write("Loading pricing model...")
+        sys.stdout = stdout_capture
         pricer = PricingPredictor(artifacts_path)
         pricer_loaded = pricer.load_model()
+        sys.stdout = sys.__stdout__
+        
+        output = stdout_capture.getvalue()
+        if output:
+            st.sidebar.code(output, language="text")
         
         if pricer_loaded:
             st.sidebar.write("✅ Pricing model loaded")
         else:
             st.sidebar.write("❌ Pricing model failed")
-            error_messages.append("Pricing model failed to load")
+            error_messages.append(f"Pricing model failed to load. Output: {output}")
         
     except Exception as e:
+        sys.stdout = sys.__stdout__
         pricer = None
         pricer_loaded = False
         error_msg = f"Pricing error: {str(e)}\n{traceback.format_exc()}"
         st.sidebar.error(error_msg)
         error_messages.append(error_msg)
     
+    stdout_capture = io.StringIO()
+    
     try:
         # Initialize scam detector
         st.sidebar.write("Loading scam detector...")
+        sys.stdout = stdout_capture
         detector = ScamDetector(artifacts_path)
         detector_loaded = detector.load_models()
+        sys.stdout = sys.__stdout__
+        
+        output = stdout_capture.getvalue()
+        if output:
+            st.sidebar.code(output, language="text")
         
         if detector_loaded:
             st.sidebar.write("✅ Scam detector loaded")
         else:
             st.sidebar.write("❌ Scam detector failed")
-            error_messages.append("Scam detector failed to load")
+            error_messages.append(f"Scam detector failed to load. Output: {output}")
             
     except Exception as e:
+        sys.stdout = sys.__stdout__
         detector = None
         detector_loaded = False
         error_msg = f"Scam detector error: {str(e)}\n{traceback.format_exc()}"
@@ -104,7 +125,7 @@ def load_models():
         if error_messages:
             st.sidebar.write("**Error Details:**")
             for msg in error_messages:
-                st.sidebar.code(msg)
+                st.sidebar.text(msg)
     
     return pricer, detector, models_ready
 
