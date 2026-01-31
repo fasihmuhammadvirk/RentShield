@@ -34,22 +34,17 @@ class PricingPredictor:
     
     def load_model(self) -> bool:
         """
-        Load the trained pricing model and preprocessor.
+        Load the trained pricing model.
         
         Returns:
             True if model loaded successfully, False otherwise
         """
         model_path = self.artifacts_path / "rent_model.joblib"
-        preprocessor_path = self.artifacts_path / "rent_preprocessor.joblib"
         
         try:
             if model_path.exists():
                 self.model = joblib.load(model_path)
                 print(f"✓ Loaded pricing model from {model_path}")
-            
-            if preprocessor_path.exists():
-                self.preprocessor = joblib.load(preprocessor_path)
-                print(f"✓ Loaded preprocessor from {preprocessor_path}")
             
             self.model_loaded = self.model is not None
             return self.model_loaded

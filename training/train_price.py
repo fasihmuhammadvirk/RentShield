@@ -140,11 +140,9 @@ def train_pricing_model(data_path: Path, artifacts_path: Path) -> dict:
     joblib.dump(model, model_path)
     print(f"✓ Saved model to {model_path}")
     
-    preprocessor = FeaturePreprocessor()
-    preprocessor.fit(df_clean)
-    preprocessor_path = artifacts_path / "rent_preprocessor.joblib"
-    joblib.dump(preprocessor, preprocessor_path)
-    print(f"✓ Saved preprocessor to {preprocessor_path}")
+    # Note: We don't save the preprocessor because it causes pickling issues
+    # The preprocessing logic is in preprocess.py and doesn't need to be pickled
+    
     
     metrics = {
         "train_mae": train_mae,
